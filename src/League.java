@@ -18,13 +18,13 @@ public class League extends Thread {
         name = n;
         link = l;
         seasons = new ArrayList<>();
-        out.println("League: " + name + " - " + link);
+        //out.println("League: " + name + " - " + link);
     }
 
     // This is the entry point for the second thread.
     @Override
     public void run() {
-        out.println("Connecting to - " + link);
+        //out.println("Connecting to - " + link);
         Document doc;
         try {
             doc = Jsoup.connect(link).timeout(Main.timeout).ignoreHttpErrors(true)
@@ -55,16 +55,19 @@ public class League extends Thread {
             try {
                 seasons.get(1).join();
             } catch (InterruptedException e) {
+                        System.err.println(e.getMessage());
+                        System.exit(0);
             }
         } else {
             for (Season season : seasons) {
-                season.start();
-            }
+                    season.start(); 
+            }    
             for (Season season : seasons) {
                 try {
                     season.join();
                 } catch (InterruptedException e) {
-                    out.println("THREAD ENDED ALREADY");
+                        System.err.println(e.getMessage());
+                        System.exit(0);
                 }
             }
         }

@@ -82,7 +82,7 @@ public class Main {
                             if (link.text().contains("Play-Offs")
                                     || link.text().contains("Table")
                                     || link.text().contains("P-O 1")
-                                    || link.text().contains("Qual.")) {
+                                    || link.text().contains("Qual.") || !link.attr("abs:href").contains("statto.com")) {
                                 foundAllLeagues = true;
                             } else {
                                 leagues.add(new League(link.text(), link
@@ -107,6 +107,8 @@ public class Main {
                 countries.get(6).join();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        System.err.println(ex.getMessage());
+                        System.exit(0);
             }
         }
         else{
@@ -118,6 +120,8 @@ public class Main {
                 c.join();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        System.err.println(ex.getMessage());
+                        System.exit(0);
             }
         }
         }

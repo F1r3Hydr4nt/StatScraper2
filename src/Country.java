@@ -12,6 +12,7 @@ public class Country extends Thread {
         name = n;
         leagues = l;
         out.println("Country: " + name + " #Leagues: " + leagues.size());
+                        System.err.println("");
     }
 
     @Override
@@ -22,6 +23,8 @@ public class Country extends Thread {
                 try {
                     leagues.get(0).join();
                 } catch (InterruptedException e) {
+                        System.err.println(e.getMessage());
+                        System.exit(0);
                 }
             }
         } else {
@@ -32,7 +35,8 @@ public class Country extends Thread {
                 try {
                     league.join();
                 } catch (InterruptedException e) {
-                    out.println("THREAD ENDED ALREADY");
+                        System.err.println(e.getMessage());
+                        System.exit(0);
                 }
             }
         }

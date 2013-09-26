@@ -79,6 +79,8 @@ public class Day {
             }
             // for matches add score
         } catch (IOException e) {
+                        System.err.println(e.getMessage());
+                        System.exit(0);
         }
     }
 

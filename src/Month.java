@@ -46,15 +46,17 @@ public class Month {
             File dir = new File(name);
             dir.mkdir();
             if (!days.isEmpty()) {
-                /*if (Main.isDebug) {
+                if (Main.isDebug) {
                     days.get(0).getMatches(teams);
-                } else {*/
+                } else {
                     for (int d = 0; d < days.size(); d++) {
                         days.get(d).getMatches(teams);
                     }
                 }
-            //}
+            }
         } catch (IOException e) {
+                        System.err.println(e.getMessage());
+                        System.exit(0);
         }
     }
 

@@ -21,7 +21,7 @@ public class Season extends Thread {
         link = l;
         months = new ArrayList<>();
         teams = new ArrayList<>();
-        out.println("Season: " + year + " - " + link);
+        //out.println("Season: " + year + " - " + link);
     }
 
     // This is the entry point for the second thread.
@@ -54,14 +54,13 @@ public class Season extends Thread {
             }
             
             if (!months.isEmpty()) {
-                /*if (Main.isDebug) {
+                if (Main.isDebug) {
                     months.get(0).getData(teams);
                 } else {
-                * */
                     for (int m = 0; m < months.size(); m++) {
                         months.get(m).getData(teams);
                     }
-                //}
+                }
             }
         } catch (IOException e) {
         }

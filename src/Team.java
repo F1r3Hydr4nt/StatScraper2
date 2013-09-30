@@ -3,76 +3,56 @@ public class Team {
 
     public class VenueStats {
 
-        int matchesPlayed, totalPoints, gamesWon, gamesDrawn, gamesLost, goalsFor, goalsAgainst, goalDifference;
+        int gamesPlayed, gamesWon, gamesDrawn, gamesLost, goalsFor, goalsAgainst, goalDifference, totalPoints;
 
         public VenueStats() {
-            matchesPlayed = totalPoints = gamesWon = gamesDrawn = gamesLost = goalsFor = goalsAgainst = goalDifference = 0;
+            gamesPlayed = totalPoints = gamesWon = gamesDrawn = gamesLost = goalsFor = goalsAgainst = goalDifference = 0;
         }
 
         private String to_string() {
-            return (matchesPlayed+" "+totalPoints+" "+gamesWon+" "+gamesDrawn+" "+gamesLost+" "+goalsFor+" "+goalsAgainst+" "+goalDifference);
+            return (gamesWon+" "+gamesDrawn+" "+gamesLost+" "+goalsFor+" "+goalsAgainst);
         }
     }
     String name;
     int matchGoals;
-    VenueStats home, away, overall;
+    VenueStats homePerformance, awayPerformance, overallPerformance;
+    int tablePosition,gamesPlayed, goalDifference, totalPoints;
 
     public Team(String n) {
         name = n;
-        home  = new VenueStats();
-        away  = new VenueStats();
-        overall = new VenueStats();
+        homePerformance  = new VenueStats();
+        awayPerformance  = new VenueStats();
+        overallPerformance = new VenueStats();
+        tablePosition=matchGoals=gamesPlayed=goalDifference=totalPoints=0;
     }
-    void updateStats(boolean home, int h, int a){
-        if(home){        
-            updateHomeStats(h,a);
-        }
-        else{
-            updateAwayStats(h,a);
-        }
-        updateOverallStats();
-    }
-    void updateHomeStats(int h, int a){
-        home.matchesPlayed++;
-        home.goalsFor+=h;
-        home.goalsAgainst+=a;
-        home.goalDifference+=h-a;
-        if(h>a){//win
-            home.gamesWon++;
-            home.totalPoints+=3;
-        }else if(h==a){//draw
-            home.gamesDrawn++;
-            home.totalPoints+=1;
-        }else{//lose
-            home.gamesLost++;
-        }
-    }
-    void updateAwayStats(int h, int a){
-        away.matchesPlayed++;
-        away.goalsFor+=a;
-        away.goalsAgainst+=h;
-        away.goalDifference+=a-h;
-        if(a>h){//win
-            away.gamesWon++;
-            away.totalPoints+=3;
-        }else if(a==h){//draw
-            away.gamesDrawn++;
-            away.totalPoints+=1;
-        }else{//lose
-            away.gamesLost++;
-        }
-    }
-    void updateOverallStats(){
-        overall.matchesPlayed=home.matchesPlayed+away.matchesPlayed;
-        overall.totalPoints=home.totalPoints+away.totalPoints;
-        overall.gamesWon=home.gamesWon+away.gamesWon;
-        overall.gamesDrawn=home.gamesDrawn+away.gamesDrawn;
-        overall.gamesLost=home.gamesLost+away.gamesLost;
-        overall.goalsFor=home.goalsFor+away.goalsFor;
-        overall.goalsAgainst=home.goalsAgainst+away.goalsAgainst;
-        overall.goalDifference=home.goalDifference+away.goalDifference;
+    void setStats(String data[]){
+        //tablePosition, gamesplayed, Overall WDLFA, Home, Away, GD, 
+        tablePosition = Integer.parseInt(data[0]);
+        gamesPlayed = Integer.parseInt(data[1]);
+        
+        overallPerformance.gamesWon = Integer.parseInt(data[2]);
+        overallPerformance.gamesDrawn = Integer.parseInt(data[3]);
+        overallPerformance.gamesLost= Integer.parseInt(data[4]);
+        overallPerformance.goalsFor= Integer.parseInt(data[5]);
+        overallPerformance.goalsAgainst= Integer.parseInt(data[6]);
+        
+        homePerformance.gamesWon = Integer.parseInt(data[7]);
+        homePerformance.gamesDrawn = Integer.parseInt(data[8]);
+        homePerformance.gamesLost= Integer.parseInt(data[9]);
+        homePerformance.goalsFor= Integer.parseInt(data[10]);
+        homePerformance.goalsAgainst= Integer.parseInt(data[11]);
+        
+        awayPerformance.gamesWon = Integer.parseInt(data[12]);
+        awayPerformance.gamesDrawn = Integer.parseInt(data[13]);
+        awayPerformance.gamesLost= Integer.parseInt(data[14]);
+        awayPerformance.goalsFor= Integer.parseInt(data[15]);
+        awayPerformance.goalsAgainst= Integer.parseInt(data[16]);
+        
+        goalDifference = Integer.parseInt(data[17]);
+        totalPoints = Integer.parseInt(data[18]);
+        printStats();
     }
     void printStats(){
-        System.out.println(name+" "+overall.to_string()+" Goals: "+matchGoals);
+        System.out.println(tablePosition+" "+name+" "+gamesPlayed+" "+overallPerformance.to_string()+" "+homePerformance.to_string()+" "+awayPerformance.to_string()+" "+goalDifference+" "+totalPoints);
     }
 }

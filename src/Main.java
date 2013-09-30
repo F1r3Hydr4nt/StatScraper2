@@ -113,10 +113,11 @@ public class Main {
         }
         else{
         for(Country c : countries){
-            c.start();
+            //c.start();
         }
         for(Country c : countries){
             try {
+                c.start();
                 c.join();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

@@ -29,10 +29,10 @@ public class Country extends Thread {
             }
         } else {
             for (League league : leagues) {
-                league.start();
             }
             for (League league : leagues) {
                 try {
+                    league.start();
                     league.join();
                 } catch (InterruptedException e) {
                         System.err.println(e.getMessage());

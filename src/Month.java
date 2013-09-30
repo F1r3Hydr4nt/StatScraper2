@@ -48,9 +48,11 @@ public class Month {
             if (!days.isEmpty()) {
                 if (Main.isDebug) {
                     days.get(0).getMatches(teams);
+                    days.get(0).getTableAtEndOfDay(teams);
                 } else {
-                    for (int d = 0; d < days.size(); d++) {
-                        days.get(d).getMatches(teams);
+                    for(Day d:days){
+                        d.getMatches(teams);
+                        d.getTableAtEndOfDay(teams);
                     }
                 }
             }

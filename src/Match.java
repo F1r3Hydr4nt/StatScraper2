@@ -21,16 +21,14 @@ public class Match {
         away = a;
     }
 
-    public void update(int h, int a) {
+    public void updateGoals(int h, int a) {
         home.matchGoals=h;
         away.matchGoals=a;
-        home.printStats();
-        away.printStats();
+        out.println(home.name+" "+home.matchGoals+" - "+away.matchGoals+" "+away.name);
+        /*
         home.updateStats(true,h,a);
-        away.updateStats(false,h,a);
-        out.println(home.name + " " + home.matchGoals + " vs "
-                + away.matchGoals + " " + away.name);
-       
+        awayPerformance.updateStats(false,h,a);
+        */
     }
 
 }

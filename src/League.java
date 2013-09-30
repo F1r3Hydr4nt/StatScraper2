@@ -60,10 +60,8 @@ public class League extends Thread {
             }
         } else {
             for (Season season : seasons) {
-                    season.start(); 
-            }    
-            for (Season season : seasons) {
                 try {
+                    season.start(); 
                     season.join();
                 } catch (InterruptedException e) {
                         System.err.println(e.getMessage());

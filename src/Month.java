@@ -62,9 +62,4 @@ public class Month {
         }
     }
 
-    public void getDay() {
-    }
-
-    public void getMatch() {
-    }
 }

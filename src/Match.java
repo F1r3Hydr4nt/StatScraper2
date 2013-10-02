@@ -25,10 +25,6 @@ public class Match {
         home.matchGoals=h;
         away.matchGoals=a;
         out.println(home.name+" "+home.matchGoals+" - "+away.matchGoals+" "+away.name);
-        /*
-        home.updateStats(true,h,a);
-        awayPerformance.updateStats(false,h,a);
-        */
     }
 
 }

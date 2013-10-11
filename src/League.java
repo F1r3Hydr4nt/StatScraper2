@@ -50,10 +50,11 @@ public class League extends Thread {
     }
 
     private void collectSeasons() {
+        int debugNo = 1;
         if (Main.isDebug) {
-            seasons.get(1).start();
+            seasons.get(debugNo).start();
             try {
-                seasons.get(1).join();
+                seasons.get(debugNo).join();
             } catch (InterruptedException e) {
                         System.err.println(e.getMessage());
                         System.exit(0);

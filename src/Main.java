@@ -32,18 +32,22 @@ public class Main {
         "Belgium", "Portugal", "Greece", "Turkey", "Austria",
         "Switzerland", "Denmark", "Finland", "Norway", "Sweden", "Wales",
         "Northern Ireland", "Republic of Ireland"};
+    static int minMatchesPlayed = 6;
 
     public static void main(String[] args) throws IOException {
+        File file = new File("trainingData.txt");
+    		if(file.delete()){
+    			System.out.println(file.getName() + " is deleted!");
+    		}else{
+    			System.out.println("Delete operation is failed.");
+    		}
+        
+        
         long start = System.currentTimeMillis();
 // do your work...
         // code
         String url = "http://www.statto.com";
         out.println("Connecting to - " + url);
-
-        short rownum;
-        // create a new file
-        File dir = new File("Statistics");
-        dir.mkdir();
         Document doc = Jsoup.connect(url).timeout(timeout).ignoreHttpErrors(true)
                 .followRedirects(true).get();
         Elements links = doc.select("a[href]");

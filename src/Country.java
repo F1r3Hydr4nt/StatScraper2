@@ -17,11 +17,12 @@ public class Country extends Thread {
 
     @Override
     public void start() {
+        int debugNo = 0;
         if (Main.isDebug) {
             if (!leagues.isEmpty()) {
-                leagues.get(0).start();
+                leagues.get(debugNo).start();
                 try {
-                    leagues.get(0).join();
+                    leagues.get(debugNo).join();
                 } catch (InterruptedException e) {
                         System.err.println(e.getMessage());
                         System.exit(0);

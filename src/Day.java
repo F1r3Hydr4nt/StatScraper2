@@ -81,6 +81,12 @@ public class Day {
                 }
                 matchCounter++;
             }
+            //for every match output the table for home 
+            //then away then the score of the match
+            //This must occur before the table is updated
+            for(Match m: matches){
+                m.writeDataToFile();
+            }
             // for matches add score
         } catch (IOException e) {
             System.err.println(e.getMessage());
@@ -143,7 +149,7 @@ public class Day {
                 }
 
             }
-
+            
         } catch (IOException ex) {
             Logger.getLogger(Day.class.getName()).log(Level.SEVERE, null, ex);
         }

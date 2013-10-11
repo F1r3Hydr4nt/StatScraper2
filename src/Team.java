@@ -1,6 +1,15 @@
 
 public class Team {
 
+    String homeToNeuralInput() {
+        //return(gamesPlayed+" "+totalPoints+" "+goalDifference+" "+homePerformance.to_string()+" "+awayPerformance.to_string());
+        return(tablePosition+" "+totalPoints+" "+goalDifference+" "+homePerformance.to_string()+" "+overallPerformance.to_string());
+    }
+    String awayToNeuralInput() {
+        //return(gamesPlayed+" "+totalPoints+" "+goalDifference+" "+homePerformance.to_string()+" "+awayPerformance.to_string());
+        return(tablePosition+" "+totalPoints+" "+goalDifference+" "+awayPerformance.to_string()+" "+overallPerformance.to_string());
+    }
+
     public class VenueStats {
 
         int gamesPlayed, gamesWon, gamesDrawn, gamesLost, goalsFor, goalsAgainst, goalDifference, totalPoints;
@@ -10,7 +19,7 @@ public class Team {
         }
 
         private String to_string() {
-            return (gamesWon+" "+gamesDrawn+" "+gamesLost+" "+goalsFor+" "+goalsAgainst);
+            return (gamesWon+" "+gamesDrawn+" "+gamesLost+" "+goalDifference+" "+totalPoints);
         }
     }
     String name;
@@ -53,6 +62,6 @@ public class Team {
         printStats();
     }
     void printStats(){
-        System.out.println(tablePosition+" "+name+" "+gamesPlayed+" "+overallPerformance.to_string()+" "+homePerformance.to_string()+" "+awayPerformance.to_string()+" "+goalDifference+" "+totalPoints);
+        System.out.println(tablePosition+" "+name+" "+gamesPlayed+" "+overallPerformance.to_string()+" "+homePerformance.to_string()+" "+awayPerformance.to_string()+" "+goalDifference+" "+totalPoints+" ");
     }
 }

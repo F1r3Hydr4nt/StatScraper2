@@ -41,20 +41,16 @@ public class Month {
                     days.add(new Day(date, dateLink));
                 }
             }
-
-            // create a new file
-            File dir = new File(name);
-            dir.mkdir();
             if (!days.isEmpty()) {
-                if (Main.isDebug) {
-                    days.get(0).getMatches(teams);
-                    days.get(0).getTableAtEndOfDay(teams);
-                } else {
+               // if (Main.isDebug) {
+               //     days.get(0).getMatches(teams);
+               //     days.get(0).getTableAtEndOfDay(teams);
+                //} else {
                     for(Day d:days){
                         d.getMatches(teams);
                         d.getTableAtEndOfDay(teams);
                     }
-                }
+                //}
             }
         } catch (IOException e) {
                         System.err.println(e.getMessage());

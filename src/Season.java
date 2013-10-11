@@ -52,15 +52,14 @@ public class Season extends Thread {
                     months.add(new Month(monthName, monthLink));
                 }
             }
-            
             if (!months.isEmpty()) {
-                if (Main.isDebug) {
-                    months.get(0).getData(teams);
-                } else {
+                //if (Main.isDebug) {
+                //    months.get(0).getData(teams);
+                //} else {
                     for (int m = 0; m < months.size(); m++) {
                         months.get(m).getData(teams);
                     }
-                }
+                //
             }
         } catch (IOException e) {
         }
